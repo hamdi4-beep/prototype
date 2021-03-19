@@ -8,6 +8,7 @@ body {
     margin: 0;
     color: #FFF;
     text-align: center;
+    animation: color 2s infinite alternate;
 }
 
 .wrapper {
@@ -33,4 +34,12 @@ input {
 
 input:focus {
     outline: none;
+}
+
+@keyframes color {
+    from {
+        background-color: #F06;
+    } to {
+        background-color: #3bbced;
+    }
 }
