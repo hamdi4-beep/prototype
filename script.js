@@ -2,7 +2,8 @@ const title = document.querySelector("h1");
 const colors = ["green", "blue", "white", "pink",
                 "red", "orange", "grey", "gold",
                 "purple", "cyan", "silver", "crimson",
-                "black", "darkblue", "darkgrey", "chocolate"];
+                "black", "darkblue", "darkgrey", "chocolate",
+                "yellow", "brown", "deeppink", "rose"];
 
 document.querySelector("input").addEventListener("keyup", function(e) {
     e.target.value == "" ? title.textContent : title.textContent = this.value;
@@ -16,6 +17,10 @@ document.querySelector("input").addEventListener("keyup", function(e) {
     });
 });
 
+document.querySelector("a").addEventListener("click", function() {
+    document.querySelector(".blur").style.display = this.parentElement.style.display = "none";
+});
+
 title.onclick = function() {
     this.textContent = "You're the boss!";
-}
+};
