@@ -5,22 +5,23 @@ const colors = ["green", "blue", "white", "pink",
                 "black", "darkblue", "darkgrey", "chocolate",
                 "yellow", "brown", "deeppink", "rose"];
 
+document.body.addEventListener("click", function(e) {
+    if (e.target.tagName == "A") {
+        document.querySelector(".blur").style.display = e.target.parentElement.style.display = "none";
+    } else if (e.target.tagName == "H1") {
+        e.target.textContent = "You're the boss!";
+    }
+});
+
 document.querySelector("input").addEventListener("keyup", function(e) {
-    e.target.value == "" ? title.textContent : title.textContent = this.value;
-    colors.forEach(function(color) {
-        if (e.target.value.toLowerCase().indexOf(color) != -1) {
-            title.style.color = color;
-        } else if (e.target.value.toLowerCase().trim() == "default") {
-            title.textContent = "Hamdi Kamel";
-            title.style.color = "white";
-        }
-    });
+    if (this.value) {
+        /^\s+/.test(this.value) ? "" : title.textContent = this.value;
+        colors.forEach(function(color) {
+            if (e.target.value.toLowerCase().indexOf(color) != -1) {
+                title.style.color = color;
+            } else if (e.target.value.toLowerCase().trim() == "default") {
+                title.textContent = "Hamdi Kamel";
+            }
+        });
+    }
 });
-
-document.querySelector("a").addEventListener("click", function() {
-    document.querySelector(".blur").style.display = this.parentElement.style.display = "none";
-});
-
-title.onclick = function() {
-    this.textContent = "You're the boss!";
-};
